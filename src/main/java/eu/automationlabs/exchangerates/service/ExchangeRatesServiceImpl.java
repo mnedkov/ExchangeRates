@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 
 	@Override
 	public synchronized void refreshData() {
-		exchangeRatesCache = Collections.unmodifiableMap(exchangeRatesDao.getExchangeRates());
+		exchangeRatesCache = Collections.unmodifiableMap(exchangeRatesDao.getExchangeRates(), "dummy");
 		currenciesCache = Collections.unmodifiableMap(exchangeRatesDao.getCurrencies());
 		currencyCode2exchangeRates = new HashMap<>();
 		currencyCode2exchangeRates.put(BASE_CURRENCY, createExchangeRatesResponse(exchangeRatesCache));
