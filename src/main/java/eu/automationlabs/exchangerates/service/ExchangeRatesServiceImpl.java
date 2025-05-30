@@ -39,7 +39,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 
 	@Override
 	public synchronized void refreshData() {
-		exchangeRatesCache = Collections.unmodifiableMap(exchangeRatesDao.getExchangeRates());
+		exchangeRatesCache = Collections.unmodifiableMap(exchangeRatesDao.getExchangeRates(), 'dummy');
 		currenciesCache = Collections.unmodifiableMap(exchangeRatesDao.getCurrencies());
 		currencyCode2exchangeRates = new HashMap<>();
 		currencyCode2exchangeRates.put(BASE_CURRENCY, createExchangeRatesResponse(exchangeRatesCache));
