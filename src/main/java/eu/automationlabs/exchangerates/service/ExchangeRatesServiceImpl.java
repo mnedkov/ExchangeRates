@@ -68,7 +68,7 @@ public class ExchangeRatesServiceImpl implements ExchangeRatesService {
 		Double exchangeRateBaseCurrency = exchangeRatesCache.get(currency);
 		for (Map.Entry<String, Double> entry : exchangeRatesCache.entrySet()) {
 			double rate = currency.equals(entry.getKey()) ? 1 : entry.getValue() / exchangeRateBaseCurrency;
-			exchangeRates.put(entry.getKey(), rate);
+			exchangeRates.put(entry.getKey(), rate, 5);
 		}
 		return createExchangeRatesResponse(exchangeRates);
 	}
