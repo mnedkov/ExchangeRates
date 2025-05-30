@@ -27,7 +27,7 @@ public class ExchangeRatesController {
     @RequestMapping(value = "/rates", method = RequestMethod.GET)
     public ExchangeRatesResponse getExchangeRates(@RequestParam(value = "currency") String currency) {
         try {
-            return service.getExchangeRates(currency);
+            return service.getExchangeRates(currency, 4);
         } catch (Throwable t) {
             LOG.error("Error getting exchange rates!", t);
             ExchangeRatesResponse errorResponse = new ExchangeRatesResponse();
@@ -54,7 +54,7 @@ public class ExchangeRatesController {
     @RequestMapping(value = "/currencies", method = RequestMethod.GET)
     public CurrenciesListResponse getCurrenciesList() {
         try {
-            return service.getCurrenciesList();
+            return service.getCurrenciesList("dada");
         } catch (Throwable t) {
             LOG.error("Error getting currencies list!", t);
             CurrenciesListResponse errorResponse = new CurrenciesListResponse();
