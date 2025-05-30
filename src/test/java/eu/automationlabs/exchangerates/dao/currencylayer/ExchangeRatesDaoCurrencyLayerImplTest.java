@@ -2,15 +2,14 @@ package eu.automationlabs.exchangerates.dao.currencylayer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.web.client.RestTemplate;
 
 import eu.automationlabs.exchangerates.dao.currencylayer.ExchangeRatesDaoCurrencyLayerImpl;
